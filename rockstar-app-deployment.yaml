@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: shamsapp 
+spec:
+  selector:
+    matchLabels:
+      app: shamsapp
+  replicas: 3 
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: shamsapp 
+    spec:
+      containers:
+      - image: shamsalamnaimi/react-rock:v1
+        imagePullPolicy: Always 
+        name: shamsapp 
+        ports:
+          - containerPort: 80

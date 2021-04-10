@@ -1,0 +1,5 @@
+.terraform
+bkp
+.terraform.lock.hcl
+commnadFile.txt
+terraform.tfstate
